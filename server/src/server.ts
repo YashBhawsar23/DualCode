@@ -2,9 +2,10 @@ import express, { Response, Request } from "express";
 import dotenv from "dotenv";
 import http from "http";
 import cors from "cors";
-import { Server, Socket } from "socket.io";  // Changed Socket import
+import { Server, type Socket } from "socket.io";  // Changed Socket import
 import path from "path";
 import { fileURLToPath } from "url";
+import { dirname as __dirname } from 'path';
 import {
   SocketEvent,
   SocketId,
@@ -21,7 +22,7 @@ import { USER_CONNECTION_STATUS, type User } from "./types/user";
 
 // Fix __dirname for ES modules
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __dirname = __dirname(__filename);
 
 dotenv.config();
 
